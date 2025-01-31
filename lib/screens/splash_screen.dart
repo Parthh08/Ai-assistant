@@ -23,31 +23,32 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SizedBox(
         width: double.maxFinite,
         child: Column(
           children: [
-            const Spacer(
+            Spacer(
               flex: 2,
             ),
-            Card(
-              color: Colors.blue[400],
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(18.0),
-                child: Image.asset(
-                  'assets/images/assistant.png',
-                  width: 200,
-                  height: 200,
-                ),
-              ),
-            ),
-            const Spacer(),
-            const CustomLoading(),
-            const Spacer(),
+            // Card(
+            //   elevation: 1,
+            //   // color: Colors.blue[400],
+            //   shape: RoundedRectangleBorder(
+            //     borderRadius: BorderRadius.circular(15),
+            //   ),
+            //   child: Padding(
+            //     padding: const EdgeInsets.all(18.0),
+            //     child: Image.asset(
+            //       'assets/images/assistant.png',
+            //       width: 200,
+            //       height: 200,
+            //     ),
+            //   ),
+            // ),
+            Spacer(),
+            CustomLoading(),
+            Spacer(),
           ],
         ),
       ),
