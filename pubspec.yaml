@@ -38,12 +38,9 @@ dependencies:
   #for  lottie animations
   lottie: ^3.3.1
   #for hive database
-  hive: ^4.0.0-dev.2
-  isar_flutter_libs: ^4.0.0-dev.13
+  hive: ^2.2.3
 
-  #for path provider
-  path_provider: ^2.1.0
-
+  path_provider: ^2.1.5
 
 dev_dependencies:
   flutter_test:

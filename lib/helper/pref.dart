@@ -4,9 +4,10 @@ import 'package:path_provider/path_provider.dart';
 class Pref {
   static late Box _box;
 
-  static void initialize() async {
-    Hive.defaultDirectory = (await getApplicationDocumentsDirectory()).path;
-    _box = Hive.box(name: 'myBox');
+  static Future<void> initialize() async {
+    final appDocumentDir = await getApplicationDocumentsDirectory();
+    Hive.init(appDocumentDir.path);
+    _box = await Hive.openBox('myBox');
   }
 
   static bool get showOnboarding =>
