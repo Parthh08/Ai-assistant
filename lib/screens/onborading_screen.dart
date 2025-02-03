@@ -3,6 +3,7 @@
 import 'package:ai_assistant/model/onboarding.dart';
 import 'package:ai_assistant/screens/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 class OnboradingScreen extends StatelessWidget {
@@ -84,8 +85,9 @@ class OnboradingScreen extends StatelessWidget {
                       minimumSize: Size(60, 50)),
                   onPressed: () {
                     if (index == list.length - 1) {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) => const HomeScreen()));
+                      Get.off(() => const HomeScreen());
+                      // Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      //     builder: (context) => const HomeScreen()));
                     } else {
                       c.nextPage(
                           duration: const Duration(milliseconds: 500),
