@@ -4,6 +4,7 @@ import 'package:ai_assistant/model/home_type.dart';
 import 'package:ai_assistant/widget/home_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -22,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Animate.restartOnHotReload = true;
     //mq = MediaQuery.sizeOf(context);
     return Scaffold(
         backgroundColor: backgroundColor,
@@ -53,6 +55,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     homeType: e,
                   ))
               .toList(),
-        ));
+        ).animate().fade(duration: 2.seconds));
   }
 }
