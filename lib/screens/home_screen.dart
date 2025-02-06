@@ -1,3 +1,4 @@
+import 'package:ai_assistant/apis/apis.dart';
 import 'package:ai_assistant/global.dart';
 import 'package:ai_assistant/helper/pref.dart';
 import 'package:ai_assistant/model/home_type.dart';
@@ -25,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     Animate.restartOnHotReload = true;
     //mq = MediaQuery.sizeOf(context);
+    Apis.getAnswer('What is the capital of UAE?');
     return Scaffold(
         backgroundColor: backgroundColor,
         appBar: AppBar(
