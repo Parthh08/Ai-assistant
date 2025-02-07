@@ -24,11 +24,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Animate.restartOnHotReload = true;
-    //mq = MediaQuery.sizeOf(context);
-    Apis.getAnswer('What is the capital of UAE?');
+    // Animate.restartOnHotReload = true;
+    //Apis.getAnswer('What is the capital of UAE?');
     return Scaffold(
-        backgroundColor: backgroundColor,
+        backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: appBarColor,
           elevation: 1,

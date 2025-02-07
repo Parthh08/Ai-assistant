@@ -9,34 +9,37 @@ class HomeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(18.0),
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
-        ),
-        elevation: 1,
-        color: Colors.white,
-        child: Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 12.0),
-              child: Image.asset(
-                homeType.image,
-                width: 160,
-                height: 160,
+      child: InkWell(
+        onTap: homeType.OnTap,
+        child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          elevation: 1,
+          color: Colors.white,
+          child: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 12.0),
+                child: Image.asset(
+                  homeType.image,
+                  width: 160,
+                  height: 160,
+                ),
               ),
-            ),
-            const SizedBox(
-              width: 20,
-            ),
-            Text(
-              homeType.title,
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-                letterSpacing: 1,
+              const SizedBox(
+                width: 20,
               ),
-            ),
-          ],
+              Text(
+                homeType.title,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                  letterSpacing: 1,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

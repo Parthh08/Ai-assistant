@@ -18,9 +18,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return GetMaterialApp(
         title: 'Ai Assistant',
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(),
         home: SplashScreen());
   }
 }
