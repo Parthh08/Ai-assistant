@@ -1,4 +1,7 @@
+import 'package:ai_assistant/controller/chat_controller.dart';
+import 'package:ai_assistant/model/message.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ChatbotFeature extends StatefulWidget {
   const ChatbotFeature({super.key});
@@ -8,6 +11,8 @@ class ChatbotFeature extends StatefulWidget {
 }
 
 class _ChatbotFeatureState extends State<ChatbotFeature> {
+
+  final _c = ChatController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,6 +26,7 @@ class _ChatbotFeatureState extends State<ChatbotFeature> {
           children: [
             Expanded(
                 child: TextFormField(
+                  controller: _c.chatInputController,
               onTapOutside: (e) => FocusScope.of(context).unfocus(),
               decoration: InputDecoration(
                 isDense: true,
@@ -29,7 +35,7 @@ class _ChatbotFeatureState extends State<ChatbotFeature> {
                   borderRadius: BorderRadius.circular(15),
                 ),
                 suffixIcon: IconButton(
-                  onPressed: () {},
+                  onPressed: _c.askQuestion,
                   icon: const Icon(Icons.send),
                 ),
               ),
@@ -37,8 +43,13 @@ class _ChatbotFeatureState extends State<ChatbotFeature> {
           ],
         ),
       ),
-      body: ListView(
-        children: [],
+      body: Obx(()=>
+        ListView(
+          children: _c.chatList.map((e) => ListTile(
+            title: Text(e.msg),
+            tileColor: e.msgType == MessageType.bot ? Colors.blue : Colors.green,
+          )).toList(),
+        ),
       ),
     );
   }

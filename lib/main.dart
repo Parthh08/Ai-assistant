@@ -22,6 +22,6 @@ class MyApp extends StatelessWidget {
         title: 'Ai Assistant',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(),
-        home: SplashScreen());
+        home:const  SplashScreen());
   }
 }
