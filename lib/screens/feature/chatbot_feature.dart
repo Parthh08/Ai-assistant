@@ -29,6 +29,8 @@ class _ChatbotFeatureState extends State<ChatbotFeature> {
               controller: _c.chatInputController,
               onTapOutside: (e) => FocusScope.of(context).unfocus(),
               decoration: InputDecoration(
+                fillColor: Colors.white,
+                filled: true,
                 isDense: true,
                 hintText: 'Ask me anything...',
                 border: OutlineInputBorder(
@@ -45,6 +47,7 @@ class _ChatbotFeatureState extends State<ChatbotFeature> {
       ),
       body: Obx(
         () => ListView(
+          physics: BouncingScrollPhysics(),
           padding: EdgeInsets.only(top: 20, bottom: 10),
           children: _c.chatList.map((e) => MessageCard(message: e)).toList(),
         ),
