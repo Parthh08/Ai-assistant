@@ -1,6 +1,9 @@
 # ai_assistant
 
-A new Flutter project.
+A new Flutter project which includes 3 features 
+- ai chat bot
+- ai image generator
+- ai language translator
 
 ## Getting Started
 
