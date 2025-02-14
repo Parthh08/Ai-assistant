@@ -1,4 +1,5 @@
 import 'package:ai_assistant/controller/chat_controller.dart';
+import 'package:ai_assistant/global.dart';
 import 'package:ai_assistant/model/message.dart';
 import 'package:ai_assistant/widget/message_card.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,9 @@ class _ChatbotFeatureState extends State<ChatbotFeature> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
       appBar: AppBar(
+        backgroundColor: appBarColor,
         title: const Text('Ai ChatBot'),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
