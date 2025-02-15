@@ -12,9 +12,9 @@ class ChatController extends GetxController {
     if (question.isNotEmpty) {
       //user
       chatList.add(Message(msg: question, msgType: MessageType.user));
-      chatInputController.clear();
 
       final res = await Apis.getAnswer(chatInputController.text);
+      chatInputController.clear();
       //bot
       chatList.add(Message(msg: res!, msgType: MessageType.bot));
     }

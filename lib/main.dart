@@ -1,3 +1,4 @@
+import 'package:ai_assistant/apis/apis.dart';
 import 'package:ai_assistant/helper/pref.dart';
 import 'package:ai_assistant/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Pref.initialize();
+  await Apis.init();
   await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   await SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
@@ -22,6 +24,6 @@ class MyApp extends StatelessWidget {
         title: 'Ai Assistant',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(),
-        home:const  SplashScreen());
+        home: const SplashScreen());
   }
 }

@@ -1,17 +1,28 @@
 import 'package:google_generative_ai/google_generative_ai.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 import 'package:ai_assistant/global.dart';
 
 class Apis {
-  static Future<String?> getAnswer(String question) async {
-    try {
-      final model = GenerativeModel(
-        model: 'gemini-1.5-flash-latest',
-        apiKey: apiKey,
-      );
+  static late final GenerativeModel model;
+  static late final ChatSession chat;
 
-      final content = [Content.text(question)];
-      final response = await model.generateContent(content);
+  static init() {
+    model = GenerativeModel(
+      model: 'gemini-1.5-flash-latest',
+      apiKey: apiKey,
+    );
+    chat = model.startChat();
+  }
+
+  static Future<String?> getAnswer(String question) async {
+    print(question);
+    try {
+      // final content = [Content.text(question)];
+      final response = await chat.sendMessage(Content.text(
+        question,
+      ));
 
       // Printing response in log
       print('res: ${response.text}');
