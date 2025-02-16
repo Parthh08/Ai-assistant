@@ -1,4 +1,5 @@
 import 'package:ai_assistant/model/message.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
 class MessageCard extends StatelessWidget {
@@ -24,21 +25,38 @@ class MessageCard extends StatelessWidget {
                   width: 15,
                 ),
                 Container(
-                    constraints: BoxConstraints(
-                      maxWidth: MediaQuery.of(context).size.width * 0.7,
+                  constraints: BoxConstraints(
+                    maxWidth: MediaQuery.of(context).size.width * 0.7,
+                  ),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(15),
+                      topRight: Radius.circular(15),
+                      bottomRight: Radius.circular(15),
                     ),
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(15),
-                        topRight: Radius.circular(15),
-                        bottomRight: Radius.circular(15),
-                      ),
-                      border: Border.all(color: Colors.grey.shade300),
-                    ),
-                    child: Text(message.msg)),
+                    border: Border.all(color: Colors.grey.shade300),
+                  ),
+                  child: message.msg.isEmpty
+                      ? AnimatedTextKit(
+                          animatedTexts: [
+                            TypewriterAnimatedText(
+                              '...',
+                              textStyle: const TextStyle(
+                                fontSize: 16,
+                                color: Colors.black,
+                              ),
+                              speed: const Duration(milliseconds: 60),
+                            ),
+                          ],
+                          repeatForever: true,
+                          pause: const Duration(milliseconds: 1000),
+                          displayFullTextOnTap: true,
+                        )
+                      : Text(message.msg),
+                ),
               ],
             ),
           )
@@ -77,5 +95,8 @@ class MessageCard extends StatelessWidget {
               ],
             ),
           );
+    const SizedBox(
+      width: 15,
+    );
   }
 }
