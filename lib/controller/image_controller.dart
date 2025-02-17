@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 class ImageController extends GetxController {
   final textC = TextEditingController();
-  Future<void> askQuestion() async {
+  Future<void> createAiImage() async {
     final question = textC.text.trim();
     if (question.isNotEmpty) {
       

@@ -6,6 +6,7 @@ import 'package:ai_assistant/widget/home_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -27,24 +28,27 @@ class _HomeScreenState extends State<HomeScreen> {
     // Animate.restartOnHotReload = true;
     //Apis.getAnswer('What is the capital of UAE?');
     return Scaffold(
-        backgroundColor: Colors.white,
+        // backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: appBarColor,
+          // backgroundColor: appBarColor,
           elevation: 1,
           title: const Text(
             'Ai Assistant',
-            style: TextStyle(
-                color: Colors.black, fontSize: 20, fontWeight: FontWeight.w500),
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
           ),
           centerTitle: true,
           actions: [
             Padding(
               padding: const EdgeInsets.only(right: 10),
               child: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.changeThemeMode(
+                      Pref.isDarkMode ? ThemeMode.light : ThemeMode.dark,
+                    );
+                    Pref.isDarkMode = !Pref.isDarkMode;
+                  },
                   icon: const Icon(
                     Icons.brightness_4_outlined,
-                    color: Colors.black,
                   )),
             )
           ],
@@ -56,6 +60,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     homeType: e,
                   ))
               .toList(),
-        ).animate().fade(duration: 2.seconds));
+        ).animate().fade(duration: NumDurationExtensions(2).seconds));
   }
 }

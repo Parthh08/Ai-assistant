@@ -19,7 +19,7 @@ class _ChatbotFeatureState extends State<ChatbotFeature> {
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: AppBar(
-        backgroundColor: appBarColor,
+        // backgroundColor: appBarColor,
         title: const Text('Ai ChatBot'),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -50,12 +50,10 @@ class _ChatbotFeatureState extends State<ChatbotFeature> {
       ),
       body: Obx(
         () => ListView(
-          
           controller: _c.ScrollC,
           physics: BouncingScrollPhysics(),
           padding: EdgeInsets.only(top: 20, bottom: 40),
           children: _c.chatList.map((e) => MessageCard(message: e)).toList(),
-
         ),
       ),
     );

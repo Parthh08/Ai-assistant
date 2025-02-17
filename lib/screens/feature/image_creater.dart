@@ -39,7 +39,7 @@ class _ImageGeneratorFeatureState extends State<ImageGeneratorFeature> {
                 borderRadius: BorderRadius.circular(15),
               ),
               suffixIcon: IconButton(
-                onPressed: _c.askQuestion,
+                onPressed: _c.createAiImage,
                 icon: const Icon(Icons.send),
               ),
             ),

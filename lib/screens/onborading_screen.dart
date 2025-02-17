@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:ai_assistant/main.dart';
 import 'package:ai_assistant/model/onboarding.dart';
 import 'package:ai_assistant/screens/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -56,7 +57,7 @@ class OnboradingScreen extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 13.5,
                     letterSpacing: 0.5,
-                    color: Colors.black54,
+                    color: Theme.of(context).textColor,
                   ),
                 ),
                 const Spacer(),
@@ -78,6 +79,7 @@ class OnboradingScreen extends StatelessWidget {
                 //button
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
+                      backgroundColor: Theme.of(context).buttonColor,
                       shape: const StadiumBorder(),
                       elevation: 0,
                       textStyle: const TextStyle(
