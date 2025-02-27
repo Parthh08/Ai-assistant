@@ -3,7 +3,7 @@
     
     
     <application
-        android:label="Ai_Assistant"
+        android:label="Ai Assistant"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
